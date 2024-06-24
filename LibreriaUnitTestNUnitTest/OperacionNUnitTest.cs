@@ -21,5 +21,37 @@ namespace LibreriaUnitTest
             ClassicAssert.AreEqual(119, resultado);
 
         }
+
+        [Test]
+        public void IsValorPar_InputNumeroPar_ReturnFalse()
+        {
+            Operacion op = new();
+            int numeroImpar = 7;
+
+            bool isPar = op.IsValorPar(numeroImpar);
+            ClassicAssert.IsFalse(isPar); //Assert.That(isPar, Is.EqualTo(false))
+        }
+
+        [Test]
+        public void IsValorPar_InputNumeroPar_ReturnTrue()
+        {
+            Operacion op = new();
+            int numeroPar = 8;
+
+            bool isPar = op.IsValorPar(numeroPar);
+            Assert.That(isPar, Is.EqualTo(true));
+        }
+
+        [Test]
+        [TestCase(4, 4)] //Poner coma para mas parametros
+        [TestCase(6, 100)]
+        [TestCase(20, 100)]
+        public void IsValorPar_InputNumeroParParm_ReturnTrue(int numeroPar, int numeroX)
+        {
+            Operacion op = new();
+
+            bool isPar = op.IsValorPar(numeroPar);
+            Assert.That(isPar, Is.EqualTo(true));
+        }
     }
 }
