@@ -53,5 +53,17 @@ namespace LibreriaUnitTest
             bool isPar = op.IsValorPar(numeroPar);
             Assert.That(isPar, Is.EqualTo(true));
         }
+
+        [Test]
+        [TestCase(3, ExpectedResult = false)]
+        [TestCase(5, ExpectedResult = true)]
+        [TestCase(7, ExpectedResult = false)]
+        public bool IsValorPar_InputNumeroParParam_ReturnFalse(int numeroImpar)
+        {
+           Operacion op = new();
+
+           return op.IsValorPar(numeroImpar);
+          
+        }
     }
 }
