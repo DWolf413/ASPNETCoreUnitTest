@@ -65,5 +65,23 @@ namespace LibreriaUnitTest
            return op.IsValorPar(numeroImpar);
           
         }
+
+        [Test]
+        [TestCase(2.2, 1.2)] //Resultado debe ser 3.4
+        [TestCase(2.23, 1.24)] // resultado 3.47
+        [TestCase(2.23, 2.24)] // resultado 4.47
+        public void SumarDecimal_InputDosNumeros_GetValorCorrecto(double decimal1Test, double decimal2Test)
+        {
+            
+            Operacion op = new();
+
+            
+            double resultado = op.SumarDecimal(decimal1Test, decimal2Test);
+
+            //3.3 -> 3.5
+            ClassicAssert.AreEqual(3.4, resultado, 2);
+
+        }
+
     }
 }
