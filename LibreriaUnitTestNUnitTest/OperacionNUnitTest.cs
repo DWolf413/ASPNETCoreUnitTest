@@ -83,5 +83,15 @@ namespace LibreriaUnitTest
 
         }
 
+        [Test]
+        public void GetListaNumeroImpares_InputMinimoMaximoIntervalos_RetursListaImapres()
+        {
+            Operacion op = new();
+            List<int> numerosImparesEsperados = new() { 5,7,9 };
+            List<int> resultados = op.GetListaNumeroImpares(5, 10);
+
+            Assert.That(resultados, Is.EqualTo(numerosImparesEsperados));
+        }
+
     }
 }
