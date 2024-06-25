@@ -56,7 +56,7 @@ namespace LibreriaUnitTest
 
         [Test]
         [TestCase(3, ExpectedResult = false)]
-        [TestCase(5, ExpectedResult = true)]
+        [TestCase(5, ExpectedResult = false)]
         [TestCase(7, ExpectedResult = false)]
         public bool IsValorPar_InputNumeroParParam_ReturnFalse(int numeroImpar)
         {
