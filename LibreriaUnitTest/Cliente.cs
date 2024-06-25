@@ -13,6 +13,12 @@ namespace LibreriaUnitTest
 
         public string CrearNombreCompleto(string nombre, string apellido)
         {
+
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                throw new ArgumentException("El nombre esta en blanco");
+            }
+
             Descuento = 30;
             ClienteNombre = $"{nombre} {apellido}";
             //return $"{nombre} {apellido}";
