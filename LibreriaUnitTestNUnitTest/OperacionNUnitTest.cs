@@ -91,6 +91,15 @@ namespace LibreriaUnitTest
             List<int> resultados = op.GetListaNumeroImpares(5, 10);
 
             Assert.That(resultados, Is.EqualTo(numerosImparesEsperados));
+            ClassicAssert.AreEqual(numerosImparesEsperados, resultados);
+            Assert.That(resultados, Does.Contain(5));
+            ClassicAssert.Contains(5, resultados);
+
+            Assert.That(resultados, Is.Not.Empty);
+            Assert.That(resultados.Count, Is.EqualTo(3));
+            Assert.That(resultados, Has.No.Member(100));
+            Assert.That(resultados, Is.Ordered.Ascending); //Por defecto es ascending
+            Assert.That(resultados, Is.Unique);
         }
 
     }

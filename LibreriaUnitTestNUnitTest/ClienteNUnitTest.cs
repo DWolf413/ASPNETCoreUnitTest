@@ -48,5 +48,12 @@ namespace LibreriaUnitTest
             //cliente.CrearNombreCompleto("David", "Logacho");
             ClassicAssert.IsNull(cliente.ClienteNombre);
         }
+
+        [Test]
+        public void DescuentoEvaluacion_DefaultCliente_ReturnDescuentoIntervalo()
+        {
+            int descuento = cliente.Descuento;
+            Assert.That(descuento, Is.InRange(5,24));
+        }
     }
 }
