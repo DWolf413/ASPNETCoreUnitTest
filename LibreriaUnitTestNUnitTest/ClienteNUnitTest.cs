@@ -53,7 +53,7 @@ namespace LibreriaUnitTest
         {
             //Cliente cliente = new();
             //cliente.CrearNombreCompleto("David", "Logacho");
-            ClassicAssert.IsNull(cliente.ClienteNombre);
+            ClassicAssert.IsNull(cliente.ClienteNombre); //Evaluar cuando la propiedad es nula, recorda que la propieda no toma hasta el metodo
         }
 
         [Test]
@@ -82,6 +82,24 @@ namespace LibreriaUnitTest
             Assert.Throws<ArgumentException>(() => cliente.CrearNombreCompleto("", "Logacho"));
             Assert.That(() => cliente.CrearNombreCompleto("", "Logacho"), Throws.ArgumentException);
 
+        }
+
+        [Test]
+        public void GetClienteDetalle_CrearClienteConMenos500TotalOrder_ReturnsClienteBasico()
+        {
+            cliente.OrderTotal = 150;
+            var result = cliente.GetClienteDetalle();
+
+            Assert.That(result, Is.TypeOf<ClienteBasico>());
+        }
+
+        [Test]
+        public void GetClienteDetalle_CrearClienteConMas500TotalOrder_ReturnsClientePremium()
+        {
+            cliente.OrderTotal = 700;
+            var result = cliente.GetClienteDetalle();
+
+            Assert.That(result, Is.TypeOf<ClientePremium>());
         }
     }
 }
